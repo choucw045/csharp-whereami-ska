@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp_ska", "csharp_ska\csharp_ska.csproj", "{F66A8D29-344B-4275-8720-93E546BF124E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp_ska.Tests", "csharp_ska.Tests\csharp_ska.Tests\csharp_ska.Tests.csproj", "{D15B2EF5-BE3E-4881-9727-EF7E11306165}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F66A8D29-344B-4275-8720-93E546BF124E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F66A8D29-344B-4275-8720-93E546BF124E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F66A8D29-344B-4275-8720-93E546BF124E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F66A8D29-344B-4275-8720-93E546BF124E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D15B2EF5-BE3E-4881-9727-EF7E11306165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D15B2EF5-BE3E-4881-9727-EF7E11306165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D15B2EF5-BE3E-4881-9727-EF7E11306165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D15B2EF5-BE3E-4881-9727-EF7E11306165}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
