@@ -6,7 +6,12 @@ namespace csharp_ska.Services;
 
 public class CountryCodeService
 {
-    private readonly HttpClient _client = new HttpClient();
+    private readonly HttpClient _client;
+
+    public CountryCodeService(IHttpClientFactory httpClientFactory)
+    {
+        _client = httpClientFactory.CreateClient("CountryCodeClient");
+    }
 
     public async Task<string> GetCountryCodeByIp(string ip)
     {
@@ -20,7 +25,7 @@ public class CountryCodeService
             }
         };
         var resp = await _client.PostAsync(
-            "http://ip-api.com/batch",
+            "/batch",
             JsonContent.Create(
                 data,
                 MediaTypeHeaderValue.Parse("application/json"),

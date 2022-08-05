@@ -8,9 +8,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddSingleton<IpService>();
 builder.Services.AddSingleton<CountryCodeService>();
+builder.Services.AddHttpClient<IpService>(c => c.BaseAddress = new System.Uri("https://api.ipify.org"));
+builder.Services.AddHttpClient("CountryCodeClient", c => c.BaseAddress = new System.Uri("http://ip-api.com"));
 
 var app = builder.Build();
 
@@ -28,3 +29,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
