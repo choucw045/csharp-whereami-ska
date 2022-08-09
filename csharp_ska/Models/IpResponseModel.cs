@@ -5,5 +5,5 @@ namespace csharp_ska.Models;
 public class IpResponseModel
 {
     [JsonPropertyName("ip")]
-    public string IP { get; set; }
+    public string? IP { get; set; }
 }

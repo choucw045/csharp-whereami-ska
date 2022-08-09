@@ -5,11 +5,11 @@ namespace csharp_ska.Models;
 public class CountryCodeRequestModel
 {
     [JsonPropertyName("query")]
-    public string Query { get; set; }
+    public string? Query { get; set; }
     
     [JsonPropertyName("fields")]
-    public string Fields { get; set; }
+    public string? Fields { get; set; }
     
     [JsonPropertyName("lang")]
-    public string Lang { get; set; }
+    public string? Lang { get; set; }
 }

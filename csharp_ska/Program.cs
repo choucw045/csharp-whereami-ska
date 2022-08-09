@@ -1,4 +1,6 @@
 using csharp_ska.Services;
+using Polly;
+using Polly.Extensions.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +12,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IpService>();
 builder.Services.AddSingleton<CountryCodeService>();
-builder.Services.AddHttpClient<IpService>(c => c.BaseAddress = new System.Uri("https://api.ipify.org"));
-builder.Services.AddHttpClient("CountryCodeClient", c => c.BaseAddress = new System.Uri("http://ip-api.com"));
+builder.Services
+    .AddHttpClient("IpClient", c => c.BaseAddress = new System.Uri("https://api.ipify.org"))
+    .AddPolicyHandler(
+        HttpPolicyExtensions
+            .HandleTransientHttpError()
+            .RetryAsync(5));
+builder.Services
+    .AddHttpClient("CountryCodeClient", c => c.BaseAddress = new System.Uri("http://ip-api.com"))
+    .AddPolicyHandler(
+        HttpPolicyExtensions
+            .HandleTransientHttpError()
+            .RetryAsync(5));
 
 var app = builder.Build();
 
@@ -29,4 +41,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
